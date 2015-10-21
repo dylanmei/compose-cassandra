@@ -1,0 +1,11 @@
+cassandra0:
+  image: cassandra
+  ports:
+    - 7000:7000
+
+cassandra1:
+  image: cassandra
+  links:
+    - cassandra0:seed
+  environment:
+    - CASSANDRA_SEEDS=seed
